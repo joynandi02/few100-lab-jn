@@ -1,10 +1,6 @@
 import './styles.css';
 console.log('Ready to Party');
 
-const radios = document.querySelectorAll('input[type="radio"]');
-radios.forEach(s => s.addEventListener('click', calculate))
-
-
 const numberInput: HTMLInputElement = <HTMLInputElement>document.getElementById("bill");
 
 const billAmount: HTMLInputElement = <HTMLInputElement>document.getElementById("billAmount");
@@ -13,11 +9,17 @@ const tipAmount: HTMLInputElement = <HTMLInputElement>document.getElementById("t
 const totalAmount: HTMLInputElement = <HTMLInputElement>document.getElementById("totalAmount");
 const tipText: HTMLInputElement = <HTMLInputElement>document.getElementById("tip");
 
+const radios = document.querySelectorAll('input[type="radio"]');
+radios.forEach(s => s.addEventListener('click', calculate))
+
+
 function calculate() {
     const label = this as HTMLInputElement;
     const tipInput: string = label.value;
+
     const numberinputString = numberInput.value;
     const cost = parseFloat(numberinputString);
+
     const tip = cost * parseFloat(tipInput);
     const total = cost + tip;
 
